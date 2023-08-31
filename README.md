@@ -8,6 +8,7 @@ This is an Android application developed using Kotlin and Android Jetpack. The a
 - [Installation](#installation)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Video](#video)
 - [License](#license)
 
 ## Overview
@@ -34,6 +35,9 @@ To run this application on your local machine, follow these steps:
 - Kotlin programming language
 - Android Jetpack components (e.g., ViewModel, LiveData, Navigation)
 
+## Video
+
+Watch the video: https://drive.google.com/file/d/1QuZsXUi7dFl5AtPFLsqIk8h0gK-9UTh0/view?usp=sharing
 
 ## License
 
