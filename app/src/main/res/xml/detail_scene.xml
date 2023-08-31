@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <Transition
+      app:constraintSetStart="@id/expanded"
+      app:constraintSetEnd="@id/collapsed"
+      >
+
+     <OnSwipe
+      app:dragDirection="dragUp"
+      app:touchAnchorId="@id/nestedScrollView"
+      app:touchAnchorSide="top" />
+
+      <KeyFrameSet>
+          <KeyAttribute
+              app:framePosition="60"
+              app:motionTarget="@id/house_bg"
+              android:elevation="0dp"
+              >
+              <CustomAttribute
+                  app:attributeName="imageAlpha"
+                  app:customIntegerValue="255" />
+          </KeyAttribute>
+          <KeyAttribute
+              app:framePosition="90"
+              app:motionTarget="@id/house_bg"
+              android:elevation="@dimen/spacing_x_small"
+              >
+              <CustomAttribute
+                  app:attributeName="imageAlpha"
+                  app:customIntegerValue="0" />
+          </KeyAttribute>
+      </KeyFrameSet>
+
+      <KeyFrameSet>
+          <KeyAttribute
+              app:framePosition="60"
+              app:motionTarget="@id/house_title"
+              >
+              <CustomAttribute
+                  app:attributeName="textColor"
+                  app:customColorValue="?colorOnPrimary" />
+          </KeyAttribute>
+          <KeyAttribute
+              app:framePosition="90"
+              app:motionTarget="@id/house_title">
+              <CustomAttribute
+                  app:attributeName="textColor"
+                  app:customColorValue="#BF000000" />
+          </KeyAttribute>
+      </KeyFrameSet>
+
+      <KeyFrameSet>
+          <KeyAttribute
+              app:framePosition="60"
+              app:motionTarget="@id/home_btn"
+              >
+              <CustomAttribute
+                  app:attributeName="colorFilter"
+                  app:customColorValue="?colorOnPrimary" />
+          </KeyAttribute>
+          <KeyAttribute
+              app:framePosition="90"
+              app:motionTarget="@id/home_btn">
+              <CustomAttribute
+                  app:attributeName="colorFilter"
+                  app:customColorValue="#BF000000" />
+          </KeyAttribute>
+      </KeyFrameSet>
+  </Transition>
+
+    <ConstraintSet android:id="@+id/expanded">
+        <Constraint
+            android:id="@id/house_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/house_detail_img_height"
+            android:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                app:attributeName="imageAlpha"
+                app:customIntegerValue="255" />
+        </Constraint>
+        <Constraint
+            android:id="@id/dt_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/house_bg"
+            app:layout_constraintTop_toTopOf="@id/house_title"
+            >
+        </Constraint>
+        <Constraint
+            android:id="@id/house_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_small"
+            app:layout_constraintBottom_toBottomOf="@+id/house_bg"
+            app:layout_constraintEnd_toStartOf="@+id/end_grid">
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="?colorOnPrimary" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/img_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/house_title"
+            app:layout_constraintStart_toStartOf="@id/start_grid"
+            app:layout_constraintTop_toTopOf="@id/house_title"
+            >
+        </Constraint>
+        <Constraint
+            android:id="@+id/home_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+        </Constraint>
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/collapsed">
+        <Constraint
+            android:id="@id/house_bg"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="@dimen/spacing_x_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+            <CustomAttribute
+                app:attributeName="imageAlpha"
+                app:customIntegerValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@id/dt_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_xx_large"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@id/house_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </Constraint>
+        <Constraint
+            android:id="@id/house_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/house_bg"
+            app:layout_constraintEnd_toStartOf="@+id/end_grid"
+            app:layout_constraintTop_toTopOf="@+id/house_bg"
+            >
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="#BF000000" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/img_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/house_title"
+            app:layout_constraintStart_toStartOf="@id/start_grid"
+            app:layout_constraintTop_toTopOf="@id/house_title"
+            >
+        </Constraint>
+        <Constraint
+            android:id="@+id/home_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/house_bg"
+            >
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="#BF000000" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>

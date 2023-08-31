@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="filter"
+            type="com.mili.housead.overview.FilterType" />
+    </data>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/filter_chip"
+        style="@style/Widget.HouseAd.Chip.Action.Transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:chipIcon="@drawable/ic_clear_white_16dp"
+        app:filterChip="@{filter}" />
+</layout>

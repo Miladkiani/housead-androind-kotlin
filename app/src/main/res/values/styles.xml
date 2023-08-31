@@ -1,0 +1,79 @@
+<!-- Widget Styles Only-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Widget.HouseAd.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.HouseAd.Body1</item>
+        <item name="android:textColor">@color/on_surface_50</item>
+    </style>
+
+
+    <style name="Widget.HouseAd.TextView.Subtitle">
+        <item name="android:textColor">@color/on_surface_75</item>
+        <item name="android:textAppearance">@style/TextAppearance.HouseAd.Subtitle</item>
+    </style>
+
+    <style name="Widget.HouseAd.TextView.Title1">
+        <item name="android:textColor">@color/on_surface_75</item>
+        <item name="android:textAppearance">@style/TextAppearance.HouseAd.Title1</item>
+    </style>
+
+    <style name="Widget.HouseAd.TextView.Title1.Green">
+        <item name="android:textColor">?colorPrimary</item>
+    </style>
+
+
+    <style name="Widget.HouseAd.TextView.Title2">
+        <item name="android:textColor">@color/on_surface_75</item>
+        <item name="android:textAppearance">@style/TextAppearance.HouseAd.Title2</item>
+    </style>
+
+    <style name="Widget.HouseAd.TextView.Title2.Green">
+        <item name="android:textColor">?colorPrimary</item>
+    </style>
+
+
+
+    <style name="Widget.HouseAd.TextView.ToolbarTitle">
+        <item name="android:textAppearance">@style/TextAppearance.HouseAd.ToolbarTitle</item>
+    </style>
+
+    <style name="Widget.HouseAd.TextView.ToolbarTitle.Light">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.HouseAd.TextView.Subtitle.Light">
+        <item name="android:textAppearance">@style/TextAppearance.HouseAd.Subtitle</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.HouseAd.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:imeOptions">flagNoExtractUi</item>
+        <item name="hintTextColor">?colorOnPrimary</item>
+        <item name="android:textColorHint">?colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.HouseAd.EditText.SearchBox">
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.HouseAd.Chip.Choice.Stroke" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipStrokeColor">@color/stroke_chip_state</item>
+        <item name="chipStrokeWidth">@dimen/spacing_xxx_small</item>
+        <item name="chipBackgroundColor">@color/bg_chip_state</item>
+    </style>
+
+    <style name="Widget.HouseAd.Chip.Entry" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="checkedIconVisible">false</item>
+        <item name="chipCornerRadius">@dimen/spacing_small</item>
+    </style>
+
+    <style name="Widget.HouseAd.Chip.Action.Transparent" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">@color/on_surface_10</item>
+        <item name="chipSurfaceColor">@color/on_surface_10</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="chipCornerRadius">@dimen/spacing_small</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+</resources>

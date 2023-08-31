@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="option"
+            type="com.mili.housead.overview.filter.model.OptionProperty" />
+    </data>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/option_chip"
+        style="@style/Widget.HouseAd.Chip.Choice.Stroke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:chipCornerRadius="@dimen/spacing_small"
+        app:optionChip="@{option}" />
+</layout>

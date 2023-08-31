@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mili.housead.overview.OverviewViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/green_gradient"
+            android:fitsSystemWindows="true">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/filter_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="@string/filter"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingTop="@dimen/spacing_small"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:paddingBottom="@dimen/spacing_small"
+                    app:srcCompat="@drawable/ic_sort_white_24dp" />
+
+                <TextView
+                    style="@style/Widget.HouseAd.TextView.ToolbarTitle.Light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/app_name" />
+
+                <ImageView
+                    android:id="@+id/more_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@string/more"
+                    android:padding="@dimen/spacing_small"
+                    app:srcCompat="@drawable/ic_more_vert_white_24dp" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/search_height"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:background="@drawable/bg_search_box"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small">
+
+                <ImageButton
+                    android:id="@+id/clear_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/clear_btn"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_clear_white_24dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/search_input"
+                    style="@style/Widget.HouseAd.EditText.SearchBox"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/search_height"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/search_hint"
+                    android:singleLine="true" />
+
+                <ImageButton
+                    android:id="@+id/search_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/search"
+                    app:srcCompat="@drawable/ic_search_white_24dp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/filter_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_normal"
+                android:visibility="gone"
+                app:listFilterProperty="@{viewModel.filterProperty}"
+                tools:listitem="@layout/list_item_filter_entry_chip" />
+
+            <ProgressBar
+                android:id="@+id/waiting_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="-7dp"
+                android:layout_marginBottom="-7dp"
+                android:indeterminate="true"
+                app:waitingStatus="@{viewModel.status}" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <!-- TODO: Update blank fragment layout -->
+        <com.mili.housead.utilities.GridRecyclerView
+            android:id="@+id/houses_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:layoutAnimation="@anim/grid_layout_animation_from_bottom"
+            android:padding="@dimen/spacing_small"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:listHouse="@{viewModel.properties}"
+            tools:itemCount="16"
+            tools:listitem="@layout/list_item_house" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:brokenStatus="@{viewModel.status}">
+
+            <TextView
+                android:id="@+id/broken"
+                style="@style/Widget.HouseAd.TextView.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_cloud_off_pink_128dp"
+                android:text="@string/not_connected" />
+
+            <Button
+                android:id="@+id/try_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:onClick="@{()->viewModel.refreshProperties()}"
+                android:text="@string/try_again" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/empty_title"
+            style="@style/Widget.HouseAd.TextView.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/house"
+            android:gravity="center"
+            android:text="@string/not_found_any_houses"
+            app:emptyStatus="@{viewModel.status}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

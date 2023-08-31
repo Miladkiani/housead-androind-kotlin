@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/overviewFragment">
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.mili.housead.overview.OverviewFragment"
+        tools:layout="@layout/fragment_overview">
+        <action
+            android:id="@+id/action_showDetail"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_aboutFragment2"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.mili.housead.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.mili.housead.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail"
+        >
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.mili.housead.network.model.HouseProperty"/>
+        <action
+            android:id="@+id/action_showGallery"
+            app:destination="@id/galleryFragment"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.mili.housead.gallery.GalleryFragment"
+        android:label="gallery_fragment">
+        <argument
+            android:name="gallery"
+            app:argType="com.mili.housead.network.model.HouseImageProperty[]" />
+    </fragment>
+</navigation>

@@ -1,0 +1,20 @@
+<!-- themes and themeOverlays. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.HouseAd" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/material_green_a700</item>
+        <item name="colorPrimaryDark">@color/material_green_600</item>
+        <item name="colorPrimaryVariant">@color/material_green_a400</item>
+        <item name="colorSecondary">@color/material_pink_300</item>
+        <item name="colorSecondaryVariant">@color/material_pink_200</item>
+        <item name="android:windowBackground">@color/material_grey_200</item>
+        <item name="colorOnPrimary">#ffffff</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="android:fontFamily">@font/iran_sans_light</item>
+        <item name="fontFamily">@font/iran_sans_light</item>
+        <item name="android:textViewStyle">@style/Widget.HouseAd.TextView</item>
+
+    </style>
+</resources>

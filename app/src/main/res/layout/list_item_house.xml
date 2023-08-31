@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.mili.housead.utilities.Utils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="house"
+            type="com.mili.housead.network.model.HouseProperty" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_small"
+        app:cardCornerRadius="@dimen/spacing_xx_small"
+        app:cardElevation="@dimen/spacing_xx_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/house_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/house_item_img_height"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@{@string/house_img_content(house.title)}"
+                    android:scaleType="fitCenter"
+                    app:overviewImageUrl="@{house.images[0].original}"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_xx_large"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/dark_transparent_gradient" />
+
+                <TextView
+                    android:id="@+id/house_title"
+                    style="@style/Widget.HouseAd.TextView.Subtitle.Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingTop="@dimen/spacing_x_small"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:paddingBottom="@dimen/spacing_x_small"
+                    android:singleLine="true"
+                    android:text="@{Utils.persianNumber(house.title)}"
+                    tools:text="@tools:sample/full_names" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/house_place"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@{@string/house_location(house.city,house.neighborhood)}"
+                            app:drawableEndCompat="@drawable/ic_place_black_16dp"
+                            tools:text="@tools:sample/cities" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/house_sell_prepayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            app:houseLeaseType="@{house.lease_type}"
+                            app:housePrepayment="@{house.prepayment}"
+                            app:houseSell="@{house.sell}"
+                            tools:text="@tools:sample/us_phones" />
+
+                        <TextView
+                            android:id="@+id/house_rent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:visibility="@{house.lease_type == 33 ? View.VISIBLE : View.GONE}"
+                            app:houseRent="@{house.rent}"
+                            tools:text="@tools:sample/us_phones" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/house_furniture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/spacing_x_small"
+                        android:text="@string/house_furniture"
+                        android:visibility="@{house.furniture == 1 ? View.VISIBLE : View.GONE}"
+                        app:drawableEndCompat="@drawable/ic_kitchen_black_24dp" />
+
+                    <TextView
+                        android:id="@+id/house_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:drawablePadding="@dimen/spacing_x_small"
+                        android:text="@{@string/house_room(Utils.persianNumber(String.valueOf(house.room)))}"
+                        android:visibility="@{house.room != 0 ? View.VISIBLE : View.GONE}"
+                        app:drawableEndCompat="@drawable/ic_hotel_black_24dp"
+                        tools:text="@tools:sample/first_names" />
+
+                    <TextView
+                        android:id="@+id/house_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:drawablePadding="@dimen/spacing_x_small"
+                        android:text="@{@string/house_size(Utils.persianNumber(String.valueOf(house.size)))}"
+                        android:visibility="@{house.size != 0 ? View.VISIBLE : View.GONE}"
+                        app:drawableEndCompat="@drawable/ic_home_black_24dp"
+                        tools:text="@tools:sample/first_names" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,22 @@
+<!-- TextAppearances, text size dimensions -->
+<resources>
+
+    <style name="TextAppearance.HouseAd.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+    <style name="TextAppearance.HouseAd.Subtitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="TextAppearance.HouseAd.Title1" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">@dimen/font_xx_large</item>
+    </style>
+
+    <style name="TextAppearance.HouseAd.Title2" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">@dimen/font_x_large</item>
+    </style>
+
+    <style name="TextAppearance.HouseAd.ToolbarTitle" parent="TextAppearance.MaterialComponents.Headline5"/>
+
+</resources>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mili.housead.overview.filter.FilterViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/waiting_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:waitingStatus="@{viewModel.status}" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_large"
+                app:doneStatus="@{viewModel.status}">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/filter_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="@{()->viewModel.navigateFilter()}"
+                    android:text="@string/filter_btn" />
+
+                <TextView
+                    style="@style/Widget.HouseAd.TextView.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@string/category_title" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/category_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:clipToPadding="false"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    app:listFilterOption="@{viewModel.categories}"
+                    tools:listitem="@layout/list_item_option_choice_chip" />
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/city_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:hint="@string/city_hint" />
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/neighborhood_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:hint="@string/neighborhood_hint" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/neighborhood_list_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:clipToPadding="false"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    app:listNeighborhoodFilter="@{viewModel.neighborhoodsFilter}"
+                    tools:listitem="@layout/list_item_option_entry_chip" />
+
+                <TextView
+                    style="@style/Widget.HouseAd.TextView.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@string/room_title" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/room_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:clipToPadding="false"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    app:listFilterOption="@{viewModel.rooms}"
+                    tools:listitem="@layout/list_item_option_choice_chip" />
+
+                <TextView
+                    style="@style/Widget.HouseAd.TextView.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@string/feature_title" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/feature_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:clipToPadding="false"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    app:listFilterOption="@{viewModel.features}"
+                    tools:listitem="@layout/list_item_option_choice_chip" />
+
+                <TextView
+                    style="@style/Widget.HouseAd.TextView.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@string/sell_price" />
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/sell_range"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    app:maxProgress="@{viewModel.sell.max}"
+                    app:maxRange="@{viewModel.range.maxRangeSell}"
+                    app:minProgress="@{viewModel.sell.min}"
+                    app:minRange="@{viewModel.range.minRangeSell}"
+                    app:rsb_gravity="center"
+                    app:rsb_indicator_show_mode="alwaysHide"
+                    app:rsb_mode="range"
+                    app:rsb_tick_mark_mode="number" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal">
+
+                    <TextView
+                        android:id="@+id/min_sell"
+                        android:layout_width="@dimen/width_price_filter_preview"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="end|center_vertical"
+                        app:autoSizeMaxTextSize="@dimen/font_normal"
+                        app:autoSizeMinTextSize="@dimen/font_small"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/max_sell"
+                        android:layout_width="@dimen/width_price_filter_preview"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="start|center_vertical"
+                        app:autoSizeMaxTextSize="@dimen/font_normal"
+                        app:autoSizeMinTextSize="@dimen/font_small"
+                        app:autoSizeTextType="uniform" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@string/prepayment_price"
+                    android:textAppearance="@style/TextAppearance.HouseAd.Subtitle" />
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/prepayment_range"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    app:maxProgress="@{viewModel.prepayment.max}"
+                    app:maxRange="@{viewModel.range.maxRangePrepayment}"
+                    app:minProgress="@{viewModel.prepayment.min}"
+                    app:minRange="@{viewModel.range.minRangePrepayment}"
+                    app:rsb_gravity="center"
+                    app:rsb_indicator_show_mode="alwaysHide"
+                    app:rsb_mode="range"
+                    app:rsb_tick_mark_mode="number" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal">
+
+                    <TextView
+                        android:id="@+id/min_prepayment"
+                        android:layout_width="@dimen/width_price_filter_preview"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="end|center_vertical"
+                        app:autoSizeMaxTextSize="@dimen/font_normal"
+                        app:autoSizeMinTextSize="@dimen/font_small"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/max_prepayment"
+                        android:layout_width="@dimen/width_price_filter_preview"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="start|center_vertical"
+                        app:autoSizeMaxTextSize="@dimen/font_normal"
+                        app:autoSizeMinTextSize="@dimen/font_small"
+                        app:autoSizeTextType="uniform" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@string/rent_price"
+                    android:textAppearance="@style/TextAppearance.HouseAd.Subtitle" />
+
+                <com.jaygoo.widget.RangeSeekBar
+                    android:id="@+id/rent_range"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    app:maxProgress="@{viewModel.rent.max}"
+                    app:maxRange="@{viewModel.range.maxRangeRent}"
+                    app:minProgress="@{viewModel.rent.min}"
+                    app:minRange="@{viewModel.range.minRangeRent}"
+                    app:rsb_gravity="center"
+                    app:rsb_indicator_show_mode="alwaysHide"
+                    app:rsb_mode="range"
+                    app:rsb_tick_mark_mode="number" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal">
+
+                    <TextView
+                        android:id="@+id/min_rent"
+                        android:layout_width="@dimen/width_price_filter_preview"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="end|center_vertical"
+                        app:autoSizeMaxTextSize="@dimen/font_normal"
+                        app:autoSizeMinTextSize="@dimen/font_small"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/max_rent"
+                        android:layout_width="@dimen/width_price_filter_preview"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="start|center_vertical"
+                        app:autoSizeMaxTextSize="@dimen/font_normal"
+                        app:autoSizeMinTextSize="@dimen/font_small"
+                        app:autoSizeTextType="uniform" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</layout>

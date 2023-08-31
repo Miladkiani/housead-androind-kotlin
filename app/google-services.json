@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "616504848441",
+    "firebase_url": "https://house-notifications-fabd7.firebaseio.com",
+    "project_id": "house-notifications-fabd7",
+    "storage_bucket": "house-notifications-fabd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616504848441:android:5ec7b79dce955224bf5de8",
+        "android_client_info": {
+          "package_name": "com.mili.housead"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616504848441-63km7d8238qe302t0nlcnmi67n62p394.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSL9qnSyVcjt9MKcyy-tZRR0DqqvWHZVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616504848441-63km7d8238qe302t0nlcnmi67n62p394.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

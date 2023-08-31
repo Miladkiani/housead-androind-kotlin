@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
+        android:fillViewport="true"
+        tools:context=".about.AboutFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_circular_height"
+                android:background="@drawable/rectangle_rounded_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/home_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:contentDescription="@string/back"
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingBottom="@dimen/spacing_normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_chevron_left_white_48dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/circular_card"
+                android:layout_width="@dimen/circular_width"
+                android:layout_height="@dimen/circular_height"
+                app:cardCornerRadius="@dimen/rounded_size"
+                app:cardElevation="@dimen/spacing_x_small"
+                app:layout_constraintBottom_toBottomOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+                <ImageView
+                    android:id="@+id/logo_img"
+                    android:layout_width="@dimen/logo_size"
+                    android:layout_height="@dimen/logo_size"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_icon"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/house" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/Widget.HouseAd.TextView.Title1.Green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                app:layout_constraintEnd_toEndOf="@+id/circular_card"
+                app:layout_constraintStart_toStartOf="@+id/circular_card"
+                app:layout_constraintTop_toBottomOf="@+id/circular_card" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/send_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/spacing_small"
+                app:cardElevation="@dimen/spacing_xx_small"
+                app:contentPadding="@dimen/spacing_small"
+                app:layout_constraintBottom_toTopOf="@+id/send_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/Widget.HouseAd.TextView.Title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:text="@string/send_comment" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="@string/send_comment"
+                    app:srcCompat="@drawable/ic_comment_green_24dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/send_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:background="@drawable/rectangle_rounded"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/spacing_small"
+                app:cardElevation="@dimen/spacing_xx_small"
+                app:contentPadding="@dimen/spacing_small"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/send_comment">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/Widget.HouseAd.TextView.Title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:text="@string/send_email" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="@string/send_email"
+                    app:srcCompat="@drawable/ic_email_green_24dp"
+                    tools:src="@drawable/ic_email_green_24dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/Widget.HouseAd.TextView.Title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_x_small"
+                android:text="@string/developer"
+                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/Widget.HouseAd.TextView.Title2.Green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_x_small"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:text="@string/developer_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
